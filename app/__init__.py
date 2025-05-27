@@ -34,10 +34,12 @@ def connect_db():
 #-----------------------------------------------------------
 @app.get("/")
 def home():
-    response = supabase.table("things").select().order("name").execute()
-    records = response.data
 
-    return render_template("pages/home.jinja", things=records)
+    # TODO: Switch from SupaBase to Turso queries!
+    # response = supabase.table("things").select().order("name").execute()
+    # records = response.data
+
+    return render_template("pages/home.jinja", things=???)
 
 
 #-----------------------------------------------------------
@@ -45,10 +47,8 @@ def home():
 #-----------------------------------------------------------
 @app.get("/thing/<int:id>")
 def showThing(id):
-    response = supabase.table("things").select().eq("id", id).single().execute()
-    record = response.data
 
-    return render_template("pages/thing.jinja", thing=record)
+    return render_template("pages/thing.jinja", thing=???)
 
 
 #-----------------------------------------------------------
