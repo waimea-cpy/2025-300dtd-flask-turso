@@ -10,7 +10,7 @@
 {% block content %}
 
     <section id="hero">
-        <h1>Flask and Supabase Demo</h1>
+        <h1>Flask and Turso Demo</h1>
     </section>
 
     <section id="things">
@@ -20,20 +20,55 @@
             <article>
 
                 <header>
-                    <h4>{{ thing["name"] }}</h4>
+                    <h4>{{ thing.name }}</h4>
                 </header>
 
-                <p>{{ thing["description"] }}</p>
+                <p>{{ thing.description }}</p>
 
                 <footer>
-                    <a href="/thing/{{ thing['id'] }}">More...</a>
+                    <a role="button" href="/thing/{{ thing.id }}">More...</a>
 
-                    <a href="/delete/{{ thing['id'] }}">Delete</a>
+                    <a role="button" href="/delete/{{ thing.id }}">Delete</a>
                 </footer>
 
             </article>
 
         {% endfor %}
+
+    </section>
+
+    <section>
+
+        <article>
+
+            <form>
+
+                <label>
+                    Name
+                    <input type="text" name="name" required>
+                </label>
+
+                <label>
+                    Description
+                    <input type="text" name="description">
+                </label>
+
+                <label>
+                    Cost $
+                    <input type="number" name="cost" min="0" required>
+                </label>
+
+                <label>
+                    Rating
+                    <input type="number" name="rating" min="0" max="5" required>
+                </label>
+
+                <button>Add New Thing</button>
+
+            </form>
+
+
+        </article>
 
     </section>
 
